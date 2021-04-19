@@ -50,9 +50,9 @@ declare module 'react-native-zendesk-v2' {
 
   interface UserInfo {
     // user's name
-    name: string;
+    name?: string;
     // user's email
-    email: string;
+    email?: string;
     // user's phone
     phone?: number;
     // department to redirect the chat
