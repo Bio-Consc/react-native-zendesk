@@ -66,6 +66,7 @@ RCT_EXPORT_METHOD(showHelpCenter:(NSDictionary *)options) {
 
 RCT_EXPORT_METHOD(setUserIdentity: (NSDictionary *)user) {
   if (user[@"token"]) {
+    NSLog(@"Setting user with JWT: %@", user[@"token"]);
     id<ZDKObjCIdentity> userIdentity = [[ZDKObjCJwt alloc] initWithToken:user[@"token"]];
     [[ZDKZendesk instance] setIdentity:userIdentity];
   } else {
