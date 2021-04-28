@@ -1,5 +1,4 @@
 declare module 'react-native-zendesk-v2' {
-
   // function to display chat box
   export function startChat(chatOptions: ChatOptions): void;
 
@@ -18,45 +17,49 @@ declare module 'react-native-zendesk-v2' {
   // function to set visitor info in chat
   export function setVisitorInfo(visitorInfo: UserInfo): void;
 
+  // function to set user identity
+  export function setUserIdentity(userInfo: UserInfo): void;
+
   // function to register notifications token with zendesk
   export function setNotificationToken(token: string): void;
-  
+
   interface ChatOptions extends UserInfo {
-    botName?: string
+    botName?: string;
     // boolean value if you want just chat sdk or want to use all the sdk like support, answer bot and chat
     // true value means just chat sdk
-    chatOnly?: boolean
+    chatOnly?: boolean;
     // hex code color to set on chat
-    color?: string
+    color?: string;
     /* help center specific props only */
     // sent in help center function only to show help center with/without chat
-    withChat?: boolean
+    withChat?: boolean;
     // to enable/disable ticket creation in help center
-    disableTicketCreation?: boolean
+    disableTicketCreation?: boolean;
   }
 
   interface InitOptions {
     // chat key of zendesk account to init chat
-    key: string,
+    key: string;
     // appId of your zendesk account
-    appId: string,
+    appId: string;
     // clientId of your zendesk account
-    clientId: string,
+    clientId: string;
     // support url of zendesk account
-    url: string,
+    url: string;
   }
 
   interface UserInfo {
-     // user's name
-    name: string
+    // user's name
+    name?: string;
     // user's email
-    email: string
+    email?: string;
     // user's phone
-    phone?: number
+    phone?: number;
     // department to redirect the chat
-    department?: string
+    department?: string;
     // tags for chat
-    tags?: Array<string>
+    tags?: Array<string>;
+    // JWT for user verification
+    token?: string;
   }
-
 }
